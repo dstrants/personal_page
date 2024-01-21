@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug"
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hey there 👋</div>
+    <div class="text-5xl font-bold">I'm Dimitris Strantsalis</div>
+    <div class="text-3xl py-3 font-bold">Site Reliability Engineer</div>
+    <div class="py-2">
+      <text>
+        I am a self taught developer with a passion for infrastructure. I currently work as an SRE since this is a role that combines my passion for coding and my love for infrastructure.
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="https://twitter.com/dstrants" target="_blank"> Let's connect!</a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">My personal projects {"</>"}</div>
+  </div>
+
+  <HorizontalCard
+    title="Gymable"
+    img="/post_img.webp"
+    desc="A tiny app that I built for a local fintess studio in my hometown to help them manage attendnace and subscription tracking."
+    url="#"
+    badge="NEW"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Devices"
+    img="/post_img.webp"
+    desc="I am not so close to my portable devices and they usually are out of juice when I need them 🪫 or they stay plugged in forever. I built this tiny api that informs me when they are running out of battery or they are fully charged so that I can act accordingly"
+    url="https://github.com/dstrants/devices_go"
+  />
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + createSlug(post.data.title, post.slug)}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+</BaseLayout>

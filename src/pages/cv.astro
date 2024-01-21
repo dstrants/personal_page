@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    🚀 Greetings from a seasoned Cloud Maverick and Kubernetes Virtuoso! As a battle-tested Senior Site Reliability Engineer (SRE), I've been orchestrating the cloud symphony with finesse on both Google Cloud and AWS stages. For the past thrilling three years, I've been the maestro behind the scenes, weaving magic with Kubernetes in high-stakes production environments.
+    <br>
+    🌐 Before diving deep into the cloud realms, I had a thrilling stint as a Code Artisan, sculpting elegant software solutions for two and a half years. Now, armed with a diverse arsenal of skills, I'm on a mission to infuse every byte with resilience, scalability, and a touch of operational wizardry.
+    <br>
+    🛠️ Join me on this journey where passion meets technology, and let's craft systems that not only work but dance through the digital cosmos!
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Physics Degree"
+      subtitle="at Aristotle Uninversity of Thessaloniki, Greece"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Software Engineer"
+      subtitle="From 03-2018 to 09-2020 at Center of Research and Technology (CERTH), Thessaloniki, Greece"
+    >
+      During my time in Certh I have worked as a software engineer in a eHealthe research team implemneting solutions for people with dimentia and alzheimer deseaes using commercial IoT solutions.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Site Reliability Engieer"
+      subtitle="From 10-2020  at Workable, Remote, Greece"
+    >
+      Part of the a central SRE team responsible for the whole infrastructure of the company and the CI/CD pipelines.
+    </TimeLineElement>
+  </div>
+
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Kubernetes</li>
+    <li>Kafka</li>
+    <li>MongoDB</li>
+    <li>Postgresql</li>
+    <li>Redis</li>
+    <li>Python</li>
+    <li>Go</li>
+    <li>Javascript</li>
+    <li>Ruby</li>
+    <li>Github Actions</li>
+    <li>Datadog</li>
+    <li>GCP</li>
+    <li>AWS</li>
+</BaseLayout>
